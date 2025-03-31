@@ -1,5 +1,7 @@
 namespace SpriteKind {
     export const NPC = SpriteKind.create()
+    export const key = SpriteKind.create()
+    export const HUD = SpriteKind.create()
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     multilights.removeFlashlightSource(mySprite)
@@ -50,6 +52,27 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLadder, function (sp
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     multilights.removeFlashlightSource(mySprite)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorLockedWest, function (sprite, location) {
+    if (number_of_keys > 0) {
+        tiles.setTileAt(location, sprites.castle.tileDarkGrass2)
+        tiles.setTileAt(tiles.getTileLocation(0, 3), sprites.castle.tileDarkGrass3)
+        tiles.setTileAt(tiles.getTileLocation(1, 3), sprites.castle.tileDarkGrass3)
+        tiles.setTileAt(tiles.getTileLocation(2, 3), sprites.castle.tileDarkGrass3)
+        tiles.setTileAt(tiles.getTileLocation(3, 3), sprites.castle.tileDarkGrass3)
+        tiles.setTileAt(tiles.getTileLocation(3, 2), sprites.castle.tileDarkGrass3)
+        tiles.setTileAt(tiles.getTileLocation(3, 1), sprites.castle.tileDarkGrass3)
+        tiles.setTileAt(tiles.getTileLocation(3, 0), sprites.castle.tileDarkGrass3)
+        tiles.setWallAt(tiles.getTileLocation(0, 3), false)
+        tiles.setWallAt(tiles.getTileLocation(1, 3), false)
+        tiles.setWallAt(tiles.getTileLocation(2, 3), false)
+        tiles.setWallAt(tiles.getTileLocation(3, 3), false)
+        tiles.setWallAt(tiles.getTileLocation(3, 2), false)
+        tiles.setWallAt(tiles.getTileLocation(3, 1), false)
+        tiles.setWallAt(tiles.getTileLocation(3, 0), false)
+        number_of_keys += -1
+        mySprite.sayText("I used a key.", 2000, false)
+    }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     multilights.removeFlashlightSource(mySprite)
@@ -122,6 +145,11 @@ controller.combos.attachCombo("U+R", function () {
     2.5
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.key, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite)
+    number_of_keys += 1
+    mySprite.sayText("I got the key!")
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, function (sprite, location) {
     if (level == 1) {
         tiles.setCurrentTilemap(maps[0])
@@ -145,7 +173,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, fu
             . . c b d d d d d 5 5 5 b b . . 
             . . . c c c c c c c c b b . . . 
             `, SpriteKind.NPC)
-        tiles.placeOnRandomTile(mySprite2, sprites.swamp.swampTile3)
+        tiles.placeOnTile(mySprite2, tiles.getTileLocation(9, 9))
     }
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (sprite, location) {
@@ -155,6 +183,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (spr
         level = 2
     }
 })
+let number_of_keys = 0
 let mySprite2: Sprite = null
 let level = 0
 let mySprite: Sprite = null
@@ -193,8 +222,22 @@ mySprite2 = sprites.create(img`
     . . . c c c c c c c c b b . . . 
     `, SpriteKind.NPC)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 2))
+let key_0 = sprites.create(assets.image`key`, SpriteKind.key)
+tiles.placeOnTile(key_0, tiles.getTileLocation(8, 1))
+number_of_keys = 0
+tiles.placeOnTile(mySprite2, tiles.getTileLocation(9, 9))
+let AirTankSprite = sprites.create(assets.image`AirTank5_5`, SpriteKind.HUD)
 game.onUpdate(function () {
     if (level != 0) {
         sprites.destroy(mySprite2)
+    }
+})
+forever(function () {
+    if (spriteutils.distanceBetween(mySprite, mySprite2) < 50) {
+        mySprite2.follow(mySprite, 10)
+        mySprite2.sayText("What's up, my man?")
+    } else {
+        mySprite2.follow(null)
+        mySprite2.sayText("bruh")
     }
 })

@@ -4,6 +4,41 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "bat"
     },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAARERERAAAAABEzMxEAAAAAETMzEQAAAAARERERAAAAAAAQAQAAAAAAABABAAAAAAAAEBEBAAAAAAAQAQAAAAAAABARAQAAAAAAEAEAAAAAAAAQEQEAAAAAABABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "key"
+    },
+    "image4": {
+        "data": "hwQHAAMAAAD/DwAAfw8AAH8PAAB/DwAAfw8AAA8PAAD/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "AirTank4_5"
+    },
+    "image5": {
+        "data": "hwQHAAMAAAD/DwAAfw8AAH8PAAB/DwAADw8AAA8PAAD/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "AirTank3_5"
+    },
+    "image6": {
+        "data": "hwQHAAMAAAD/DwAAfw8AAH8PAAAPDwAADw8AAA8PAAD/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "AirTank2_5"
+    },
+    "image7": {
+        "data": "hwQHAAMAAAD/DwAAfw8AAA8PAAAPDwAADw8AAA8PAAD/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "AirTank1_5"
+    },
+    "image8": {
+        "data": "hwQHAAMAAAD/DwAADw8AAA8PAAAPDwAADw8AAA8PAAD/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "AirTank0_5"
+    },
+    "image3": {
+        "data": "hwQHAAMAAAD/DwAAfw8AAH8PAAB/DwAAfw8AAH8PAAD/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "AirTank5_5"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

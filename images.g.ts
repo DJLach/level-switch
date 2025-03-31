@@ -22,6 +22,61 @@ f b b b b b b b b b b f c c . .
 . . f b b b b b b c f . . . . . 
 . . . f f f f f f f . . . . . . 
 `;
+            case "image2":
+            case "key":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. 4 4 4 4 . . . . . . . . . . . 
+. 4 4 4 4 . . . . . . . . . . . 
+. 4 c c 4 . . . . . . . . . . . 
+. 4 c c 4 4 4 4 4 4 4 4 4 . . . 
+. 4 c c 4 4 4 4 4 4 4 4 4 . . . 
+. 4 c c 4 . . 4 . 4 . 4 . . . . 
+. 4 4 4 4 . . 4 . 4 . 4 . . . . 
+. 4 4 4 4 . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image4":
+            case "AirTank4_5":return img`
+f f f f f f f 
+f 7 7 7 7 . f 
+f f f f f f f 
+`;
+            case "image5":
+            case "AirTank3_5":return img`
+f f f f f f f 
+f 7 7 7 . . f 
+f f f f f f f 
+`;
+            case "image6":
+            case "AirTank2_5":return img`
+f f f f f f f 
+f 7 7 . . . f 
+f f f f f f f 
+`;
+            case "image7":
+            case "AirTank1_5":return img`
+f f f f f f f 
+f 7 . . . . f 
+f f f f f f f 
+`;
+            case "image8":
+            case "AirTank0_5":return img`
+f f f f f f f 
+f . . . . . f 
+f f f f f f f 
+`;
+            case "image3":
+            case "AirTank5_5":return img`
+f f f f f f f 
+f 7 7 7 7 7 f 
+f f f f f f f 
+`;
         }
         return null;
     })
